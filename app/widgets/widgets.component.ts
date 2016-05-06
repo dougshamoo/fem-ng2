@@ -1,9 +1,11 @@
 import {Component} from 'angular2/core';
-import {Widget} from './widget.model.ts';
+import {WidgetsService} from './widgets.service';
+import {Widget} from './widget.model';
 
 @Component({
   selector: 'widgets',
   templateUrl: 'app/widgets/widgets.component.html',
+  providers: [WidgetsService],
   styles: [`
     button {
       background-color: blue;
@@ -32,7 +34,7 @@ import {Widget} from './widget.model.ts';
 export class WidgetsComponent {
   title: string = 'Widgets';
   body: string = 'This is the Widgets body';
-  widgets: Widget[] = [];
+  widgets: Widget[];
   interpolated: string = 'Click Me';
   nums: number[] = [1, 2, 3];
   person = {
@@ -44,10 +46,11 @@ export class WidgetsComponent {
   count: number = 0;
   inputVal: string = 'Enter text...';
   show: boolean = true;
-  constructor() {
+  constructor(WidgetsService:WidgetsService) {
     setInterval( () => {
       this.transform();
     }, 500);
+    this.widgets = WidgetsService.widgets;
   };
 
   transform() {

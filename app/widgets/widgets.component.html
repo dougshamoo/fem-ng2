@@ -4,6 +4,9 @@
 <p>
   {{ body }}
 </p>
+<ul>
+  <li *ngFor='let widget of widgets'>{{widget | json}}</li>
+</ul>
 <hr>
 <h1 *ngIf='show'>{{inputVal}}</h1>
 <input [(ngModel)]=inputVal>
