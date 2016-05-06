@@ -4,5 +4,32 @@
 <p>
   {{ body }}
 </p>
+<hr>
+<h1 *ngIf='show'>{{inputVal}}</h1>
+<input [(ngModel)]=inputVal>
+<button [style.transform]='xpos' (click)=toggleShow()>Try to catch me</button>
+<hr>
+<button (click)=onClick($event)>{{ interpolated }}</button>
+<button [disabled]='isDisabled'>Change Me</button>
+<hr>
+<ul>
+  <li *ngFor='let num of nums'>{{num}}</li>
+</ul>
+<hr>
+<div class="widget">
+  <div class="scroll" (scroll)=onScroll()>
+    <h1>hey</h1>
+    <h1>hey</h1>
+    <h1>hey</h1>
+    <h1>hey</h1>
+    <h1>hey</h1>
+    <h1>hey</h1>
+    <h1>hey</h1>
+  </div>
+</div>
+<hr>
+<p>{{ person.name }}</p>
+<p>{{ person.age }}</p>
+<p>{{ person?.hobby }}</p>
 <hr/>
 <!-- <widget *ngFor="#widget of widgets" [widget]="widget"></widget> -->
